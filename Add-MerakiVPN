@@ -1,0 +1,1 @@
+Add-VpnConnection -AllUserConnection -Name "VPN Name" -ServerAddress "IP/Hostname" -TunnelType L2tp -EncryptionLevel Optional -AuthenticationMethod PAP -L2tpPsk "SecretKey" -Force -PassThru
