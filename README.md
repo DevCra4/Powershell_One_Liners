@@ -11,3 +11,8 @@ The function utalizes three cmdlets found in the SharePointOnline Powershell mod
 Add-MerakiVPN
 
 This is a one liner that may or may not successfully create a Meraki VPN. Its worked more times than it hasn't.
+
+
+Install-Chrome
+
+This is a one liner that installs the newest version of the Chrome Web Broswer
