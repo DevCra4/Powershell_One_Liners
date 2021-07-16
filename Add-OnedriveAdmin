@@ -1,0 +1,14 @@
+Function Add-OnedriveAdmin
+{
+    #connect Spo service.
+    Connect-SPOService -Url https://site-admin.sharepoint.com/
+    #Get all Onedrive URL's.
+    $OneDriveURLs = Get-SPOSite -IncludePersonalSite $true -Limit All -Filter "Url -like '-my.sharepoint.com/personal/'"
+    foreach($OneDriveURL in $OneDriveURLs)
+    {
+        #Add Secondary administrator to Onedrive Site.
+        Set-SPOUser -Site $OneDriveURL.URL -LoginName user@user.org -IsSiteCollectionAdmin $True -ErrorAction SilentlyContinue
+        Write-Host "Added secondary admin to the site $($OneDriveURL.URL)" 
+    }
+}
+Add-OnedriveAdmin -SecondaryAdmin "user@user.com" -AdminURL "https://site-admin.sharepoint.com"
