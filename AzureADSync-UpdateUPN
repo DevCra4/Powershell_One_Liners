@@ -1,0 +1,11 @@
+#Keep in mind the suffix is CASE SENSITIVE
+#Write the bellow suffix just how it is in AD!
+
+$oldSuffix = "DomainName.local"
+$newSuffix = "M365EmailAddress.com"
+$ou = "OU=Users,DC=DomainName,DC=local"
+$server = "DC"
+Get-ADUser -SearchBase $ou -filter * | ForEach-Object {
+$newUpn = $_.UserPrincipalName.Replace($oldSuffix,$newSuffix)
+$_ | Set-ADUser -server $server -UserPrincipalName $newUpn
+}
