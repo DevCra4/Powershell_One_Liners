@@ -1,0 +1,3 @@
+install-module MicrosoftTeams
+connect-microsoftteams
+Get-team | add-teamuser -user user@example.com -Role owner
